@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { JsonLd, articleJsonLd, breadcrumbJsonLd } from '@/components/seo/json-ld'
 import { Breadcrumbs } from '@/components/site/breadcrumbs'
 import { CtaBand } from '@/components/site/cta-band'
-import { getArticle, getArticles } from '@/lib/data/news'
+import { getPublishedArticle } from '@/lib/articles-db'
 import { buildMetadata } from '@/lib/seo'
 
 interface Props {
@@ -11,12 +11,14 @@ interface Props {
 }
 
 export function generateStaticParams() {
-  return getArticles().map((a) => ({ slug: a.slug }))
+  return []
 }
+export const dynamicParams = true
+export const revalidate = 60
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params
-  const article = getArticle(slug)
+  const article = await getPublishedArticle(slug)
   if (!article) return {}
   return buildMetadata({
     title: article.title,
@@ -29,7 +31,7 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function ArticlePage({ params }: Props) {
   const { slug } = await params
-  const article = getArticle(slug)
+  const article = await getPublishedArticle(slug)
   if (!article) notFound()
   const crumbs = [
     { name: 'Home', path: '/' },

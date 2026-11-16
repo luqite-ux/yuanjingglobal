@@ -4,6 +4,7 @@ import { useId, useState } from 'react'
 import { CheckCircle2, Loader2, TriangleAlert } from 'lucide-react'
 import { company } from '@/lib/site'
 import { cn } from '@/lib/utils'
+import { InquiryCaptchaField } from './inquiry-captcha-field'
 
 type Status = 'idle' | 'submitting' | 'success' | 'error'
 type Errors = Partial<Record<'name' | 'email' | 'company' | 'model', string>>
@@ -59,6 +60,7 @@ export function RfqForm({ variant = 'full', defaultModel = '' }: RfqFormProps) {
   const uid = useId()
   const [status, setStatus] = useState<Status>('idle')
   const [errors, setErrors] = useState<Errors>({})
+  const [captchaRefreshKey, setCaptchaRefreshKey] = useState(0)
   const full = variant === 'full'
   const id = (name: string) => `${uid}-${name}`
 
@@ -90,8 +92,10 @@ export function RfqForm({ variant = 'full', defaultModel = '' }: RfqFormProps) {
         body: JSON.stringify(data),
       })
       setStatus(response.ok ? 'success' : 'error')
+      if (!response.ok) setCaptchaRefreshKey((value) => value + 1)
     } catch {
       setStatus('error')
+      setCaptchaRefreshKey((value) => value + 1)
     }
   }
 
@@ -219,6 +223,8 @@ export function RfqForm({ variant = 'full', defaultModel = '' }: RfqFormProps) {
           className={cn(inputClass, 'h-auto py-3 leading-relaxed')}
         />
       </Field>
+
+      <InquiryCaptchaField refreshKey={captchaRefreshKey} />
 
       <div className="flex flex-wrap items-center gap-4">
         <button

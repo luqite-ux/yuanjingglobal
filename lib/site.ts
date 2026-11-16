@@ -24,7 +24,7 @@ export const company = {
 export const fullAddress = `${company.address.street}, ${company.address.locality}, ${company.address.region}, ${company.address.country}`
 
 export const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.yuanjingglobal.com'
+  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://yuanjingglobal.com'
 ).replace(/\/$/, '')
 
 export function absoluteUrl(path = '/') {

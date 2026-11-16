@@ -7,6 +7,7 @@ import { PageHeader } from '@/components/site/page-header'
 import { Reveal } from '@/components/site/reveal'
 import { SectionHeading } from '@/components/site/section-heading'
 import { factoryAreas, faqItems, toolingSteps } from '@/lib/data/company'
+import { factoryGallery } from '@/lib/data/factory-gallery'
 import { buildMetadata } from '@/lib/seo'
 
 export const metadata = buildMetadata({
@@ -92,6 +93,20 @@ export default function CapabilitiesPage() {
         </div>
       </section>
 
+      <section aria-labelledby="factory-gallery-title" className="border-t border-line bg-paper py-16 lg:py-24">
+        <div className="container-page">
+          <Reveal><SectionHeading id="factory-gallery-title" eyebrow="Factory evidence" title="Production floor, equipment and handling areas"><p>All supplied non-sensitive factory photographs are retained here as individual evidence views.</p></SectionHeading></Reveal>
+          <ul className="mt-10 columns-1 gap-5 sm:columns-2 lg:columns-3">
+            {factoryGallery.map((image, index) => (
+              <li key={image.src} className="mb-5 break-inside-avoid overflow-hidden border border-line bg-mist">
+                <Image src={image.src} alt={image.alt} width={1200} height={650} sizes="(min-width: 1024px) 32vw, (min-width: 640px) 48vw, 100vw" className="h-auto w-full" />
+                <p className="border-t border-line px-4 py-3 text-xs text-slate">Facility view {String(index + 1).padStart(2, '0')}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <section aria-labelledby="faq-title" className="border-t border-line bg-paper py-16 lg:py-24">
         <div className="container-page grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
@@ -110,3 +125,4 @@ export default function CapabilitiesPage() {
     </>
   )
 }
+import Image from 'next/image'

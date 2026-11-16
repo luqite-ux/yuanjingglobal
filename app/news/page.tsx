@@ -3,7 +3,7 @@ import { Newspaper } from 'lucide-react'
 import { JsonLd, breadcrumbJsonLd } from '@/components/seo/json-ld'
 import { ButtonLink } from '@/components/site/button-link'
 import { PageHeader } from '@/components/site/page-header'
-import { getArticles } from '@/lib/data/news'
+import { getPublishedArticles } from '@/lib/articles-db'
 import { buildMetadata } from '@/lib/seo'
 
 export const metadata = buildMetadata({
@@ -13,8 +13,9 @@ export const metadata = buildMetadata({
   path: '/news',
 })
 
-export default function NewsPage() {
-  const articles = getArticles()
+export const revalidate = 60
+export default async function NewsPage() {
+  const articles = await getPublishedArticles()
   const crumbs = [
     { name: 'Home', path: '/' },
     { name: 'News', path: '/news' },

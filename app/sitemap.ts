@@ -1,9 +1,11 @@
 import type { MetadataRoute } from 'next'
-import { getArticles } from '@/lib/data/news'
-import { categorySlug, getProducts } from '@/lib/data/products'
+import { getPublishedArticles } from '@/lib/articles-db'
+import { categorySlug } from '@/lib/data/products'
+import { fetchProductsData } from '@/lib/products-db'
 import { absoluteUrl } from '@/lib/site'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const [products, articles] = await Promise.all([fetchProductsData(), getPublishedArticles()])
   const staticPaths = [
     '/',
     '/products',
@@ -16,8 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
   return [
     ...staticPaths.map((path) => ({ url: absoluteUrl(path) })),
-    ...getProducts().map((p) => ({ url: absoluteUrl(p.href) })),
-    ...getArticles().map((a) => ({
+    ...products.map((p) => ({ url: absoluteUrl(p.href) })),
+    ...articles.map((a) => ({
       url: absoluteUrl(a.href),
       lastModified: a.updatedAt ?? a.publishedAt,
     })),

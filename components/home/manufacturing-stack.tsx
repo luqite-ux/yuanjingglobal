@@ -79,7 +79,7 @@ export function ManufacturingStack({ stepIds }: ManufacturingStackProps) {
               itemRefs.current[index] = el
             }}
             data-index={index}
-            className={cn(enhanced && 'flex min-h-[70vh] items-center')}
+            className={cn(enhanced && 'flex min-h-[clamp(18rem,38vh,25rem)] items-center')}
           >
             <div>
               {!enhanced && (

@@ -8,10 +8,9 @@ import { CtaBand } from '@/components/site/cta-band'
 import {
   categorySlug,
   getCategory,
-  getProduct,
-  getProducts,
   referenceGroups,
 } from '@/lib/data/products'
+import { fetchProduct, fetchProductsData } from '@/lib/products-db'
 import { buildMetadata } from '@/lib/seo'
 
 interface Props {
@@ -19,12 +18,14 @@ interface Props {
 }
 
 export function generateStaticParams() {
-  return getProducts().map((p) => ({ category: categorySlug, slug: p.slug }))
+  return []
 }
+export const dynamicParams = true
+export const revalidate = 60
 
 export async function generateMetadata({ params }: Props) {
   const { category, slug } = await params
-  const product = getProduct(slug)
+  const product = await fetchProduct(slug)
   if (!product || category !== categorySlug) return {}
   return buildMetadata({
     title: `${product.code} Brake Pad Backing Plate`,
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function ProductPage({ params }: Props) {
   const { category: categoryParam, slug } = await params
-  const product = getProduct(slug)
+  const product = await fetchProduct(slug)
   const category = getCategory(categoryParam)
   if (!product || !category || product.categorySlug !== category.slug) notFound()
 
@@ -47,7 +48,7 @@ export default async function ProductPage({ params }: Props) {
     { name: product.code, path: product.href },
   ]
   const references = referenceGroups(product)
-  const related = getProducts().filter((p) => p.slug !== product.slug)
+  const related = (await fetchProductsData()).filter((p) => p.slug !== product.slug)
   const specs = [
     { label: 'Model', value: product.code },
     { label: 'Material', value: product.material },

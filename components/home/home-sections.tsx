@@ -9,11 +9,12 @@ import { Reveal } from '@/components/site/reveal'
 import { SectionHeading } from '@/components/site/section-heading'
 import { YuanjingPrecisionScene } from '@/components/three/yuanjing-precision-scene'
 import { equipment, factStats, toolingSteps } from '@/lib/data/company'
-import { getProducts, getVehicleFamilies } from '@/lib/data/products'
+import { getVehicleFamilies } from '@/lib/data/products'
+import { fetchProductsData } from '@/lib/products-db'
 import { company, fullAddress } from '@/lib/site'
 
-export function FinderSection() {
-  const products = getProducts()
+export async function FinderSection() {
+  const products = await fetchProductsData()
   return (
     <section id="model-finder" aria-labelledby="model-finder-title" className="bg-paper py-20 lg:py-28">
       <div className="container-page">
@@ -37,8 +38,10 @@ export function FinderSection() {
   )
 }
 
-export function ApplicationsSection() {
-  const families = getVehicleFamilies()
+export async function ApplicationsSection() {
+  const products = await fetchProductsData()
+  const fallbackFamilies = getVehicleFamilies()
+  const families = fallbackFamilies.map(family => ({ ...family, products: family.products.filter(item => products.some(product => product.code === item.code)) }))
   return (
     <section id="applications" aria-labelledby="applications-title" className="bg-ivory py-20 lg:py-28">
       <div className="container-page">

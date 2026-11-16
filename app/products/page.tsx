@@ -5,7 +5,7 @@ import { CtaBand } from '@/components/site/cta-band'
 import { PageHeader } from '@/components/site/page-header'
 import { Reveal } from '@/components/site/reveal'
 import { JsonLd, breadcrumbJsonLd } from '@/components/seo/json-ld'
-import { getCategories } from '@/lib/data/products'
+import { fetchCategories } from '@/lib/products-db'
 import { buildMetadata } from '@/lib/seo'
 
 export const metadata = buildMetadata({
@@ -15,8 +15,9 @@ export const metadata = buildMetadata({
   path: '/products',
 })
 
-export default function ProductsPage() {
-  const categories = getCategories()
+export const revalidate = 60
+export default async function ProductsPage() {
+  const categories = await fetchCategories()
   const crumbs = [
     { name: 'Home', path: '/' },
     { name: 'Products', path: '/products' },

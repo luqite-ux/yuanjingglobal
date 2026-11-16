@@ -5,7 +5,8 @@ import { JsonLd, breadcrumbJsonLd } from '@/components/seo/json-ld'
 import { CtaBand } from '@/components/site/cta-band'
 import { PageHeader } from '@/components/site/page-header'
 import { Reveal } from '@/components/site/reveal'
-import { categorySlug, getCategory, getProducts } from '@/lib/data/products'
+import { categorySlug } from '@/lib/data/products'
+import { fetchCategories, fetchProductsData } from '@/lib/products-db'
 import { buildMetadata } from '@/lib/seo'
 
 interface Props {
@@ -15,10 +16,12 @@ interface Props {
 export function generateStaticParams() {
   return [{ category: categorySlug }]
 }
+export const dynamicParams = true
+export const revalidate = 60
 
 export async function generateMetadata({ params }: Props) {
   const { category: slug } = await params
-  const category = getCategory(slug)
+  const category = (await fetchCategories()).find(item => item.slug === slug)
   if (!category) return {}
   return buildMetadata({
     title: `${category.name} — Steel Backing Plates by Model`,
@@ -30,9 +33,9 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function CategoryPage({ params }: Props) {
   const { category: slug } = await params
-  const category = getCategory(slug)
+  const category = (await fetchCategories()).find(item => item.slug === slug)
   if (!category) notFound()
-  const products = getProducts()
+  const products = await fetchProductsData()
   const crumbs = [
     { name: 'Home', path: '/' },
     { name: 'Products', path: '/products' },
