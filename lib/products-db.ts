@@ -38,5 +38,22 @@ export async function fetchProductsData(): Promise<ProductView[]> {
 export async function fetchProduct(slug: string) { return (await fetchProductsData()).find(item => item.slug === slug) }
 export async function fetchCategories(): Promise<CategoryView[]> {
   const products = await fetchProductsData()
-  return getFallbackCategories().map(category => ({ ...category, productCount: products.length, image: products[0]?.image ?? category.image }))
+  const fallback = getFallbackCategories()
+  const client = getSupabaseClient()
+  const tenantId = process.env.NEXT_PUBLIC_TENANT_ID?.trim()
+  if (!client || !tenantId) return fallback.map(category => ({ ...category, productCount: products.length, image: products[0]?.image ?? category.image }))
+  const { data, error } = await client.from('product_categories').select('slug,name,name_i18n,description,description_i18n').eq('tenant_id', tenantId).eq('is_active', true).order('sort_order')
+  if (error || !data?.length) return fallback.map(category => ({ ...category, productCount: products.length, image: products[0]?.image ?? category.image }))
+  return data.map((row, index) => {
+    const base = fallback.find(category => category.slug === row.slug) ?? fallback[index] ?? fallback[0]
+    return {
+      ...base,
+      slug: row.slug,
+      href: `/products/${row.slug}`,
+      name: text(row.name_i18n?.en) || text(row.name) || base.name,
+      description: text(row.description_i18n?.en) || text(row.description) || base.description,
+      productCount: products.length,
+      image: products[0]?.image ?? base.image,
+    }
+  })
 }
