@@ -27,12 +27,12 @@ const slides: Slide[] = [
     src: '/images/hero/hero-model-discovery.jpg',
     alt: 'Rows of steel brake pad backing plates on a brushed metal surface, fading into a blue gradient',
     eyebrow: 'Model discovery',
-    title: 'Backing Plates Identified by the Numbers Buyers Use',
-    body: 'Search by FMSI, OE, WVA or TRW reference and open the dimensions, material and fitment for each steel substrate.',
+    title: 'Find the Right Backing Plate',
+    body: 'Search FMSI, OE, WVA or TRW numbers to review dimensions, material and vehicle fitment for each steel substrate.',
     cta: { label: 'Browse Models', href: '/products' },
     tone: 'dark',
     side: 'right',
-    mobilePosition: 'object-[28%_50%]',
+    mobilePosition: 'object-[18%_50%] lg:object-[35%_50%]',
     scrim:
       'lg:bg-[radial-gradient(ellipse_at_center,rgba(8,30,80,0.72)_0%,rgba(8,30,80,0.55)_55%,rgba(8,30,80,0)_78%)]',
   },
@@ -146,7 +146,7 @@ export function HeroCarousel() {
                   priority={index === 0}
                   sizes="100vw"
                   className={cn(
-                    'object-cover lg:object-center',
+                    'object-cover',
                     slide.mobilePosition,
                   )}
                 />

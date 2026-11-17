@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useId, useMemo, useState } from 'react'
-import { ArrowUpRight, Search, X } from 'lucide-react'
+import { ArrowDown, ArrowUpRight, Search, X } from 'lucide-react'
 import { ProductStage } from '@/components/products/product-stage'
 import { ButtonLink } from '@/components/site/button-link'
 import { referenceLabels, type ProductView } from '@/lib/data/products'
@@ -54,6 +54,7 @@ export function ModelFinder({ products }: { products: ProductView[] }) {
   const [compare, setCompare] = useState<string[]>([])
   const inputId = useId()
   const statusId = useId()
+  const comparisonId = useId()
 
   const results = useMemo(() => {
     const q = normalize(query)
@@ -208,7 +209,7 @@ export function ModelFinder({ products }: { products: ProductView[] }) {
                     onChange={() => toggleCompare(product.slug)}
                     className="size-5 accent-[#0a3290]"
                   />
-                  Compare
+                  Select to compare
                   <span className="sr-only"> {product.code}</span>
                 </label>
               </li>
@@ -228,8 +229,41 @@ export function ModelFinder({ products }: { products: ProductView[] }) {
         </div>
       )}
 
+      {selected.length > 0 && (
+        <div className="sticky bottom-4 z-30 mt-6 flex flex-col gap-3 rounded-sm border border-yj-blue/30 bg-paper/95 px-4 py-3 shadow-lg backdrop-blur sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="font-semibold text-ink">
+              {selected.length === 1
+                ? `${selected[0].code} selected — choose one more model`
+                : `${selected.length} models ready to compare`}
+            </p>
+            <p className="mt-0.5 text-xs text-slate">
+              Compare references, dimensions, material and vehicle fitment. Up to three models.
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setCompare([])}
+              className="inline-flex min-h-11 items-center px-3 text-sm font-semibold text-yj-blue underline-offset-4 hover:underline"
+            >
+              Clear
+            </button>
+            {selected.length >= 2 && (
+              <a
+                href={`#${comparisonId}`}
+                className="inline-flex min-h-11 items-center gap-2 rounded-sm bg-yj-blue px-4 text-sm font-semibold text-white transition-colors hover:bg-yj-blue-deep"
+              >
+                View comparison
+                <ArrowDown aria-hidden="true" className="size-4" />
+              </a>
+            )}
+          </div>
+        </div>
+      )}
+
       {selected.length >= 2 ? (
-        <div className="mt-10">
+        <div id={comparisonId} className="mt-10 scroll-mt-24">
           <div className="flex items-center justify-between gap-4">
             <h3 className="display-md text-ink">Side-by-side comparison</h3>
             <button
@@ -285,13 +319,7 @@ export function ModelFinder({ products }: { products: ProductView[] }) {
             </table>
           </div>
         </div>
-      ) : (
-        compare.length === 1 && (
-          <p className="mt-6 text-sm text-slate">
-            Select one more model to compare references, dimensions and fitment side by side. Up to three can be compared.
-          </p>
-        )
-      )}
+      ) : null}
     </div>
   )
 }
