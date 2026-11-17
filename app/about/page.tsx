@@ -44,6 +44,10 @@ export default function AboutPage() {
                 We support sampling and OEM/ODM production, and our quality
                 management operates under ISO 9001.
               </p>
+              <p className="mt-4">
+                The company serves buyers in the Middle East, Europe and Africa,
+                while also supporting selected domestic automotive programs.
+              </p>
             </SectionHeading>
           </Reveal>
           <Reveal className="lg:col-span-6" delay={80}>
@@ -55,6 +59,30 @@ export default function AboutPage() {
               caption="Building 24, Yida Science and Innovation City"
             />
           </Reveal>
+        </div>
+      </section>
+
+      <section aria-labelledby="verification-title" className="border-y border-line bg-paper py-16 lg:py-24">
+        <div className="container-page grid gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <SectionHeading id="verification-title" eyebrow="Company verification" title="Registration and quality management" />
+          </div>
+          <div className="grid gap-px border border-line bg-line sm:grid-cols-2 lg:col-span-8">
+            <article className="bg-paper p-6 lg:p-8">
+              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-yj-blue">Business registration</p>
+              <h3 className="mt-4 font-display text-3xl text-ink">Registered in Ningbo</h3>
+              <p className="mt-3 leading-relaxed text-slate">
+                The registered legal entity is 宁波圆景汽车配件有限公司, established in 2017. Use this company name for supplier onboarding and quotation documents.
+              </p>
+            </article>
+            <article className="bg-paper p-6 lg:p-8">
+              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-yj-blue">Quality management</p>
+              <h3 className="mt-4 font-display text-3xl text-ink">ISO 9001 system</h3>
+              <p className="mt-3 leading-relaxed text-slate">
+                Yuanjing states that its quality management operates under ISO 9001. Confirm the scope and documents required for your vendor qualification when requesting a quote.
+              </p>
+            </article>
+          </div>
         </div>
       </section>
 

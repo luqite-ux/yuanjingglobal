@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 import { ManufacturingStack } from '@/components/home/manufacturing-stack'
 import { EquipmentList } from '@/components/home/home-sections'
 import { JsonLd, breadcrumbJsonLd } from '@/components/seo/json-ld'
@@ -95,15 +97,33 @@ export default function CapabilitiesPage() {
 
       <section aria-labelledby="factory-gallery-title" className="border-t border-line bg-paper py-16 lg:py-24">
         <div className="container-page">
-          <Reveal><SectionHeading id="factory-gallery-title" eyebrow="Factory evidence" title="Production floor, equipment and handling areas"><p>All supplied non-sensitive factory photographs are retained here as individual evidence views.</p></SectionHeading></Reveal>
+          <Reveal>
+            <SectionHeading id="factory-gallery-title" eyebrow="Inside the factory" title="Production floor, equipment and handling areas">
+              <p>Walk through the press shop, tooling storage, finishing equipment and material-handling areas used for backing-plate production.</p>
+            </SectionHeading>
+          </Reveal>
           <ul className="mt-10 columns-1 gap-5 sm:columns-2 lg:columns-3">
-            {factoryGallery.map((image, index) => (
+            {factoryGallery.slice(0, 9).map((image) => (
               <li key={image.src} className="mb-5 break-inside-avoid overflow-hidden border border-line bg-mist">
                 <Image src={image.src} alt={image.alt} width={1200} height={650} sizes="(min-width: 1024px) 32vw, (min-width: 640px) 48vw, 100vw" className="h-auto w-full" />
-                <p className="border-t border-line px-4 py-3 text-xs text-slate">Facility view {String(index + 1).padStart(2, '0')}</p>
+                <p className="border-t border-line px-4 py-3 text-sm text-slate"><span className="font-semibold text-ink">{image.group}</span> · {image.title}</p>
               </li>
             ))}
           </ul>
+          <details className="group mt-8 border-y border-line py-5">
+            <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 font-semibold text-yj-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-yj-blue">
+              View 14 more factory photographs
+              <span aria-hidden="true" className="text-xl transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <ul className="mt-8 columns-1 gap-5 sm:columns-2 lg:columns-3">
+              {factoryGallery.slice(9).map((image) => (
+                <li key={image.src} className="mb-5 break-inside-avoid overflow-hidden border border-line bg-mist">
+                  <Image src={image.src} alt={image.alt} width={1200} height={650} sizes="(min-width: 1024px) 32vw, (min-width: 640px) 48vw, 100vw" className="h-auto w-full" />
+                  <p className="border-t border-line px-4 py-3 text-sm text-slate"><span className="font-semibold text-ink">{image.group}</span> · {image.title}</p>
+                </li>
+              ))}
+            </ul>
+          </details>
         </div>
       </section>
 
@@ -125,4 +145,3 @@ export default function CapabilitiesPage() {
     </>
   )
 }
-import Image from 'next/image'

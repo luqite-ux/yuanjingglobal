@@ -89,7 +89,7 @@ const productRecords: ProductRecord[] = [
       fmsi: ['D1044-7947'],
       oe: ['30683554', '3M51-2K021-AB'],
       wva: ['23723', '23724'],
-      trw: ['GDB1583'],
+      trw: ['GDB1583', 'GDB1939'],
     },
     material: 'Q235B',
     dimensions: '155.1/156.3 × 62.4/67 mm',

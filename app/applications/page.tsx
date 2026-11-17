@@ -10,7 +10,7 @@ import { buildMetadata } from '@/lib/seo'
 export const metadata = buildMetadata({
   title: 'Applications — Vehicle Fitment for Backing Plates',
   description:
-    'Vehicle families covered by the launch backing plate range: Toyota, Lexus, Jinbei, Foton, Ford, Mazda, Volvo, Great Wall, Hyundai and Kia.',
+    'Vehicle families covered by the current backing plate catalog: Toyota, Lexus, Jinbei, Foton, Ford, Mazda, Volvo, Great Wall, Hyundai and Kia.',
   path: '/applications',
 })
 

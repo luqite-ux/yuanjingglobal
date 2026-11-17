@@ -28,7 +28,7 @@ export default async function ProductsPage() {
       <PageHeader
         eyebrow="Products"
         title="Backing plates, organized by the numbers you search"
-        lead="One launch category today: stamped Q235B steel backing plates for brake pads."
+        lead="Stamped Q235B steel backing plates organized by reference number, dimensions and vehicle fitment."
         crumbs={crumbs}
       />
       <section aria-labelledby="categories-title" className="bg-paper py-16 lg:py-24">
@@ -47,7 +47,7 @@ export default async function ProductsPage() {
                       className="aspect-[4/3]"
                     />
                     <div className="flex flex-col justify-center gap-4 border-t border-line p-8 md:border-l md:border-t-0 lg:p-12">
-                      <p className="eyebrow">{category.productCount} launch models</p>
+                      <p className="eyebrow">{category.productCount} catalog models</p>
                       <h3 className="display-lg text-ink">
                         <Link
                           href={category.href}

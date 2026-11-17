@@ -61,7 +61,7 @@ export function ManufacturingStack({ stepIds }: ManufacturingStackProps) {
               <span className="tabular-nums font-semibold text-yj-blue">
                 {String(activeIndex + 1).padStart(2, '0')}
               </span>{' '}
-              {steps[activeIndex]?.caption} · Representative facility photography
+              {steps[activeIndex]?.caption}
             </p>
           </div>
         </div>
@@ -79,7 +79,7 @@ export function ManufacturingStack({ stepIds }: ManufacturingStackProps) {
               itemRefs.current[index] = el
             }}
             data-index={index}
-            className={cn(enhanced && 'flex min-h-[clamp(18rem,38vh,25rem)] items-center')}
+            className={cn(enhanced && 'flex min-h-[clamp(15rem,28vh,19rem)] items-center')}
           >
             <div>
               {!enhanced && (
@@ -94,7 +94,7 @@ export function ManufacturingStack({ stepIds }: ManufacturingStackProps) {
                     />
                   </div>
                   <figcaption className="border-t border-line px-4 py-2 text-xs text-slate">
-                    {step.caption} · Representative facility photography
+                    {step.caption}
                   </figcaption>
                 </figure>
               )}

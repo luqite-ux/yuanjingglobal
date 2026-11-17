@@ -49,7 +49,7 @@ export async function ApplicationsSection() {
           <SectionHeading
             id="applications-title"
             eyebrow="Applications"
-            title="Vehicle families the launch range fits"
+            title="Find the backing plate by vehicle family"
           >
             <p>
               Each family links straight to the backing plate model listed for it.
@@ -237,7 +237,7 @@ export function DeliverySection() {
     {
       label: 'MOQ',
       value: '200 pcs',
-      text: 'Listed on four of the five launch models. D1044-7947 is confirmed in the quote.',
+      text: 'Listed on four catalog models. The quantity for D1044-7947 is confirmed in the quote.',
     },
     {
       label: 'Lead time',
@@ -356,7 +356,7 @@ export function EquipmentList() {
   return (
     <dl className="divide-y divide-line border-y border-line">
       {equipment.map((row) => (
-        <div key={row.item} className="grid grid-cols-[4.5rem_1fr] items-baseline gap-4 py-4 sm:grid-cols-[6rem_1fr_auto]">
+        <div key={row.item} className="grid grid-cols-[6rem_minmax(0,1fr)] items-baseline gap-4 py-4 sm:grid-cols-[7rem_minmax(0,1fr)_auto]">
           <dt className="font-display text-3xl tabular-nums text-yj-blue">{row.count}</dt>
           <dd className="text-ink">{row.item}</dd>
           {row.spec && <dd className="col-start-2 text-sm tabular-nums text-slate sm:col-start-3">{row.spec}</dd>}
@@ -383,7 +383,7 @@ export function FacilityImage({
     <figure className="border border-line bg-mist">
       <Image src={src} alt={alt} width={width} height={height} sizes="(min-width: 1024px) 50vw, 100vw" className="h-auto w-full" />
       <figcaption className="border-t border-line px-4 py-2 text-xs text-slate">
-        {caption} · Representative facility photography
+        {caption}
       </figcaption>
     </figure>
   )
