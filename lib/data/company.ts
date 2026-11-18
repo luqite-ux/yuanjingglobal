@@ -41,7 +41,7 @@ export const processSteps: ProcessStep[] = [
     text: 'Building 24 at Yida Science and Innovation City holds three production lines, with separate areas for automatic blanking, molds, packaging, shot blasting, quality inspection and finished goods.',
     caption: 'Facility entrance, Building 24',
     image: {
-      src: '/images/facility/facility-entrance.png',
+      src: '/images/facility/facility-entrance.webp',
       width: 1773,
       height: 887,
       alt: 'Entrance of Building 24 with a brass nameplate, opening onto a press hall with a forklift and baskets of stamped plates',
@@ -53,7 +53,7 @@ export const processSteps: ProcessStep[] = [
     text: 'Steel sheet is fed to the press on an automatic blanking line, cutting plate outlines in a repeatable first operation.',
     caption: 'Automatic blanking line',
     image: {
-      src: '/images/facility/blanking-line.png',
+      src: '/images/facility/blanking-line.webp',
       width: 2559,
       height: 1259,
       alt: 'Automatic feeding rails carrying a large steel sheet into a press for blanking',
@@ -65,7 +65,7 @@ export const processSteps: ProcessStep[] = [
     text: 'Two 200-ton hydraulic presses and five 160-ton high-precision presses sit alongside ten presses across 16, 40, 80, 125 and 160 tons, so tonnage can follow the part.',
     caption: 'Press hall',
     image: {
-      src: '/images/facility/press-hall.png',
+      src: '/images/facility/press-hall.webp',
       width: 2559,
       height: 1273,
       alt: 'Press hall with a red hydraulic shear in the foreground, a green feeding frame and a press behind it',
@@ -77,7 +77,7 @@ export const processSteps: ProcessStep[] = [
     text: 'Two deburring machines clean blanked edges. Plates run across the belt and leave ready for hole and edge operations.',
     caption: 'Deburring machine',
     image: {
-      src: '/images/facility/deburring.png',
+      src: '/images/facility/deburring.webp',
       width: 2559,
       height: 1277,
       alt: 'Blanked backing plates travelling on a patterned belt through a deburring machine',
@@ -89,7 +89,7 @@ export const processSteps: ProcessStep[] = [
     text: 'Two automatic punching systems and one automatic chamfering system handle hole and edge operations without hand feeding each plate.',
     caption: 'Automatic processing equipment',
     image: {
-      src: '/images/facility/hole-processing.png',
+      src: '/images/facility/hole-processing.webp',
       width: 2559,
       height: 1274,
       alt: 'Close view of automatic processing equipment with a servo motor, cylinders and guide rails',
@@ -101,7 +101,7 @@ export const processSteps: ProcessStep[] = [
     text: 'One shot-blasting machine prepares the surface. Finished plates move in baskets toward quality inspection, packaging and the finished-goods area.',
     caption: 'Finishing and handling',
     image: {
-      src: '/images/facility/finishing-handling.png',
+      src: '/images/facility/finishing-handling.webp',
       width: 2559,
       height: 1260,
       alt: 'Wire basket holding finished backing plates beside a finishing machine',

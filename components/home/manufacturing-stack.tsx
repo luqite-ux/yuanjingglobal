@@ -49,6 +49,7 @@ export function ManufacturingStack({ stepIds }: ManufacturingStackProps) {
                   alt={step.image.alt}
                   fill
                   sizes="55vw"
+                  loading={index === activeIndex ? 'eager' : 'lazy'}
                   aria-hidden={index !== activeIndex}
                   className={cn(
                     'object-cover transition-opacity duration-500',

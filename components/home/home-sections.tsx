@@ -12,6 +12,7 @@ import { equipment, factStats, toolingSteps } from '@/lib/data/company'
 import { getVehicleFamilies } from '@/lib/data/products'
 import { fetchProductsData } from '@/lib/products-db'
 import { company, fullAddress } from '@/lib/site'
+import { cn } from '@/lib/utils'
 
 export async function FinderSection() {
   const products = await fetchProductsData()
@@ -59,14 +60,36 @@ export async function ApplicationsSection() {
         </Reveal>
         <ul className="mt-12 grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
           {families.map((family, index) => (
-            <li key={family.make} className="bg-paper">
+            <li
+              key={family.make}
+              className={cn(
+                'bg-paper',
+                index === families.length - 1 && 'lg:col-span-3',
+              )}
+            >
               <Reveal delay={index * 50} className="h-full">
-                <div className="flex h-full flex-col p-6 lg:p-8">
+                <div
+                  className={cn(
+                    'flex h-full flex-col p-6 lg:p-8',
+                    index === families.length - 1 &&
+                      'lg:grid lg:grid-cols-[minmax(12rem,0.7fr)_minmax(0,1.6fr)_auto] lg:items-center lg:gap-10',
+                  )}
+                >
                   <h3 className="font-display text-3xl text-ink">{family.make}</h3>
-                  <p className="mt-3 flex-1 leading-relaxed text-slate">
+                  <p
+                    className={cn(
+                      'mt-3 flex-1 leading-relaxed text-slate',
+                      index === families.length - 1 && 'lg:mt-0',
+                    )}
+                  >
                     {family.models.join(', ')}
                   </p>
-                  <div className="mt-6 flex flex-wrap gap-2">
+                  <div
+                    className={cn(
+                      'mt-6 flex flex-wrap gap-2',
+                      index === families.length - 1 && 'lg:mt-0 lg:justify-end',
+                    )}
+                  >
                     {family.products.map((p) => (
                       <Link
                         key={p.code}
@@ -134,8 +157,14 @@ export function ManufacturingSection() {
           <ManufacturingStack />
         </div>
         <dl className="mt-16 grid grid-cols-2 gap-px border border-line bg-line lg:grid-cols-5">
-          {factStats.map((stat) => (
-            <div key={stat.label} className="bg-paper p-5 lg:p-6">
+          {factStats.map((stat, index) => (
+            <div
+              key={stat.label}
+              className={cn(
+                'bg-paper p-5 lg:p-6',
+                index === factStats.length - 1 && 'col-span-2 lg:col-span-1',
+              )}
+            >
               <dt className="order-2 mt-2 text-sm text-slate">{stat.label}</dt>
               <dd className="font-display text-3xl tabular-nums text-ink lg:text-4xl">
                 {stat.value}
@@ -343,6 +372,36 @@ export function RfqSection() {
           >
             <p>We reply by email. No prices are shown online; each quote is prepared for your quantity and specification.</p>
           </SectionHeading>
+          <address className="mt-10 border-y border-line py-2 not-italic">
+            <div className="border-b border-line py-5">
+              <p className="text-sm font-semibold text-yj-blue">Company</p>
+              <p className="mt-2 leading-relaxed text-ink">{company.legalName}</p>
+            </div>
+            <div className="border-b border-line py-5">
+              <p className="text-sm font-semibold text-yj-blue">Address</p>
+              <p className="mt-2 leading-relaxed text-slate">{fullAddress}</p>
+            </div>
+            <div className="grid gap-4 py-5">
+              <div>
+                <p className="text-sm font-semibold text-yj-blue">Email</p>
+                <a
+                  href={`mailto:${company.email}`}
+                  className="mt-1 inline-flex min-h-11 items-center break-all text-ink underline decoration-yj-blue/40 underline-offset-4 hover:text-yj-blue"
+                >
+                  {company.email}
+                </a>
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-yj-blue">Phone</p>
+                <a
+                  href={company.phoneHref}
+                  className="mt-1 inline-flex min-h-11 items-center text-ink underline decoration-yj-blue/40 underline-offset-4 hover:text-yj-blue"
+                >
+                  {company.phone}
+                </a>
+              </div>
+            </div>
+          </address>
         </Reveal>
         <Reveal className="lg:col-span-7 lg:col-start-6" delay={80}>
           <RfqForm variant="short" />

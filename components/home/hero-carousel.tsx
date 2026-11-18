@@ -18,7 +18,7 @@ interface Slide {
   tone: 'dark' | 'light'
   side: 'left' | 'right'
   mobilePosition: string
-  scrim: string
+  panel: string
 }
 
 const slides: Slide[] = [
@@ -33,8 +33,8 @@ const slides: Slide[] = [
     tone: 'dark',
     side: 'right',
     mobilePosition: 'object-[18%_50%] lg:object-[35%_50%]',
-    scrim:
-      'lg:bg-[radial-gradient(ellipse_at_center,rgba(8,30,80,0.72)_0%,rgba(8,30,80,0.55)_55%,rgba(8,30,80,0)_78%)]',
+    panel:
+      'lg:border-white/15 lg:bg-[rgba(7,29,77,0.68)] lg:shadow-[0_24px_70px_-34px_rgba(3,12,35,0.75)]',
   },
   {
     id: 'fit-stability',
@@ -47,8 +47,8 @@ const slides: Slide[] = [
     tone: 'light',
     side: 'left',
     mobilePosition: 'object-[70%_50%]',
-    scrim:
-      'lg:bg-[radial-gradient(ellipse_at_center,rgba(247,246,242,0.88)_0%,rgba(247,246,242,0.7)_55%,rgba(247,246,242,0)_78%)]',
+    panel:
+      'lg:border-white/60 lg:bg-[rgba(247,246,242,0.78)] lg:shadow-[0_24px_70px_-36px_rgba(30,45,70,0.35)]',
   },
   {
     id: 'tooling',
@@ -61,8 +61,8 @@ const slides: Slide[] = [
     tone: 'dark',
     side: 'left',
     mobilePosition: 'object-[78%_50%]',
-    scrim:
-      'lg:bg-[radial-gradient(ellipse_at_center,rgba(10,32,84,0.5)_0%,rgba(10,32,84,0.3)_55%,rgba(10,32,84,0)_78%)]',
+    panel:
+      'lg:border-white/15 lg:bg-[rgba(7,29,77,0.64)] lg:shadow-[0_24px_70px_-34px_rgba(3,12,35,0.72)]',
   },
 ]
 
@@ -156,9 +156,9 @@ export function HeroCarousel() {
                 <div className="container-page w-full pb-4 pt-8 lg:py-0">
                   <div
                     className={cn(
-                      'lg:w-[44%] lg:max-w-[40rem] lg:p-10 lg:-m-10',
+                      'lg:w-[46%] lg:max-w-[40rem] lg:rounded-[1rem] lg:border lg:p-10 lg:backdrop-blur-xl',
                       slide.side === 'right' && 'lg:ml-auto',
-                      slide.scrim,
+                      slide.panel,
                       dark && 'on-dark',
                     )}
                   >
