@@ -35,13 +35,27 @@ export default function CapabilitiesPage() {
       />
 
       <section aria-labelledby="equipment-title" className="bg-paper py-16 lg:py-24">
-        <div className="container-page grid gap-12 lg:grid-cols-12">
-          <Reveal className="lg:col-span-5">
-            <SectionHeading id="equipment-title" eyebrow="Equipment" title="What is on the floor">
+        <div className="container-page grid gap-10 lg:grid-cols-12 lg:gap-14">
+          <Reveal className="lg:col-span-4">
+            <SectionHeading id="equipment-title" eyebrow="Equipment" title="Production equipment at a glance">
               <p>Press tonnage from 16 to 200 tons, plus automatic punching, chamfering, deburring and shot blasting.</p>
             </SectionHeading>
+            <figure className="mt-8 overflow-hidden border border-line bg-mist">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src="/images/facility/press-hall.webp"
+                  alt="Yuanjing press hall with hydraulic and high-precision stamping equipment"
+                  fill
+                  sizes="(min-width: 1024px) 30vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption className="border-t border-line px-4 py-3 text-sm text-slate">
+                Press hall · Ningbo production facility
+              </figcaption>
+            </figure>
           </Reveal>
-          <Reveal className="lg:col-span-7" delay={80}>
+          <Reveal className="lg:col-span-8" delay={80}>
             <EquipmentList />
           </Reveal>
         </div>

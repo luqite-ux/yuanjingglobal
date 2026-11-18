@@ -5,7 +5,7 @@ import type { ProductView } from '@/lib/data/products'
 
 export function ProductCard({ product }: { product: ProductView }) {
   return (
-    <article className="group relative flex flex-col border border-line bg-paper transition-[border-color,box-shadow] duration-200 hover:border-yj-blue/60 hover:shadow-[0_12px_32px_-18px_rgba(10,50,144,0.45)] has-[a:focus-visible]:outline has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-offset-2 has-[a:focus-visible]:outline-yj-blue">
+    <article className="group relative flex h-full flex-col border border-line bg-paper transition-[border-color,box-shadow] duration-200 hover:border-yj-blue/60 hover:shadow-[0_12px_32px_-18px_rgba(10,50,144,0.45)] has-[a:focus-visible]:outline has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-offset-2 has-[a:focus-visible]:outline-yj-blue">
       <ProductStage
         image={product.image}
         sizes="(min-width: 1024px) 25vw, (min-width: 640px) 45vw, 90vw"
