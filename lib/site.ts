@@ -1,7 +1,6 @@
 export const company = {
   legalName: 'NINGBO YUANJING AUTOMOTIVE PARTS CO., LTD.',
   shortName: 'Yuanjing',
-  chineseName: '宁波圆景汽车配件有限公司',
   founded: 2017,
   email: 'info@yuanjingglobal.com',
   phone: '+86 133 5599 5506',

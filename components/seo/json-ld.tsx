@@ -20,7 +20,6 @@ export function organizationJsonLd(): JsonLdData {
     '@type': 'Organization',
     '@id': `${siteUrl}/#organization`,
     name: company.legalName,
-    alternateName: company.chineseName,
     url: siteUrl,
     logo: absoluteUrl(company.logo.src),
     foundingDate: String(company.founded),

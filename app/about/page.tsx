@@ -72,7 +72,7 @@ export default function AboutPage() {
               <p className="text-sm font-semibold uppercase tracking-[0.14em] text-yj-blue">Business registration</p>
               <h3 className="mt-4 font-display text-3xl text-ink">Registered in Ningbo</h3>
               <p className="mt-3 leading-relaxed text-slate">
-                The registered legal entity is 宁波圆景汽车配件有限公司, established in 2017. Use this company name for supplier onboarding and quotation documents.
+                The registered legal entity is {company.legalName}, established in 2017. Use this full company name for supplier onboarding and quotation documents.
               </p>
             </article>
             <article className="bg-paper p-6 lg:p-8">
@@ -107,10 +107,7 @@ export default function AboutPage() {
           <dl className="divide-y divide-line border-y border-line lg:col-span-7">
             <div className="grid gap-1 py-4 sm:grid-cols-[9rem_1fr] sm:gap-6">
               <dt className="text-sm font-semibold text-slate">Company</dt>
-              <dd className="text-ink">
-                {company.legalName}
-                <span className="block text-slate">{company.chineseName}</span>
-              </dd>
+              <dd className="text-ink">{company.legalName}</dd>
             </div>
             <div className="grid gap-1 py-4 sm:grid-cols-[9rem_1fr] sm:gap-6">
               <dt className="text-sm font-semibold text-slate">Address</dt>
