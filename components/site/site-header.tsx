@@ -18,10 +18,6 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    setOpen(false)
-  }, [pathname])
-
-  useEffect(() => {
     if (!open) return
     const onKey = (event: KeyboardEvent) => {
       if (event.key === 'Escape') setOpen(false)
@@ -35,6 +31,7 @@ export function SiteHeader() {
       <div className="container-page flex h-[4.25rem] items-center justify-between gap-6">
         <Link
           href="/"
+          onClick={() => setOpen(false)}
           aria-label={`${company.legalName} — Home`}
           className="flex min-h-11 items-center gap-3"
         >
@@ -114,6 +111,7 @@ export function SiteHeader() {
               <li key={item.href}>
                 <Link
                   href={item.href}
+                  onClick={() => setOpen(false)}
                   aria-current={active ? 'page' : undefined}
                   className={cn(
                     'flex min-h-14 items-center justify-between text-lg transition-colors hover:text-yj-blue active:bg-yj-tint',

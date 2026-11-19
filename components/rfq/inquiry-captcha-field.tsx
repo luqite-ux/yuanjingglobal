@@ -57,8 +57,11 @@ export function InquiryCaptchaField({
   }, [requests, scope])
 
   useEffect(() => {
-    void refresh()
-    return () => requests.abortCurrent()
+    const timer = window.setTimeout(() => void refresh(), 0)
+    return () => {
+      window.clearTimeout(timer)
+      requests.abortCurrent()
+    }
   }, [refresh, refreshKey, requests])
 
   return (
