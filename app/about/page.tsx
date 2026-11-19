@@ -36,7 +36,7 @@ export default function AboutPage() {
             <SectionHeading id="profile-title" eyebrow="Company profile" title="What we make and how we work">
               <p>
                 We manufacture automotive brake pad backing plates and custom
-                metal stamping parts. A library of more than 1,000 backing-plate
+                metal stamping parts. An existing library of backing-plate
                 molds shortens the path for common designs, and drawing-based
                 mold development covers the rest.
               </p>

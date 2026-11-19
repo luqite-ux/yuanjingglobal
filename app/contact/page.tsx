@@ -61,7 +61,7 @@ export default async function ContactPage({ searchParams }: Props) {
               </div>
             </dl>
             <p className="mt-6 text-sm leading-relaxed text-slate">
-              Lead time is typically 15–25 days, depending on quantity and process.
+              Standard orders are delivered in 15 days.
               Prices are quoted by our team for your specification.
             </p>
           </aside>

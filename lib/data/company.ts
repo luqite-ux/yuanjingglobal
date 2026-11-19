@@ -3,7 +3,7 @@ export const factStats = [
   { value: '3,000 m²', label: 'Production facility' },
   { value: '3', label: 'Production lines' },
   { value: '1,000,000', label: 'Pieces per month, stated capacity' },
-  { value: '1,000+', label: 'Backing-plate molds' },
+  { value: 'In-house', label: 'Backing-plate molds' },
 ] as const
 
 export const factoryAreas = [
@@ -23,7 +23,7 @@ export const equipment = [
   { count: '1', item: 'Automatic chamfering system', spec: '' },
   { count: '2', item: 'Deburring machines', spec: '' },
   { count: '1', item: 'Shot-blasting machine', spec: '' },
-  { count: '1,000+', item: 'Backing-plate molds', spec: 'Existing tooling library' },
+  { count: 'In-house', item: 'Backing-plate molds', spec: 'Existing tooling library' },
 ] as const
 
 export interface ProcessStep {
@@ -116,7 +116,7 @@ export const toolingSteps = [
   },
   {
     title: 'Mold development',
-    text: 'Tooling is developed from your drawing, supported by an existing library of more than 1,000 backing-plate molds.',
+    text: 'Tooling is developed from your drawing, supported by an existing backing-plate mold library.',
   },
   {
     title: 'Sampling',
@@ -137,7 +137,7 @@ export const faqItems = [
   {
     question: 'How long does production take?',
     answer:
-      'Lead time is typically 15–25 days, depending on quantity and process. The date that applies to your order is confirmed in the quote.',
+      'Standard orders are delivered in 15 days. The date that applies to your order is confirmed in the quote.',
   },
   {
     question: 'Can you make a plate that is not listed?',

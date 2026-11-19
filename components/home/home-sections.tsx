@@ -188,7 +188,7 @@ export function ToolingSection() {
             title="Your drawing becomes a mold, then a repeat part"
           >
             <p>
-              More than 1,000 backing-plate molds already exist. If your part is
+              Existing backing-plate molds are available. If your part is
               not among them, we develop tooling from your drawing.
             </p>
           </SectionHeading>
@@ -270,7 +270,7 @@ export function DeliverySection() {
     },
     {
       label: 'Lead time',
-      value: 'Typically 15–25 days',
+      value: '15 days',
       text: 'Depends on quantity and process. The date for your order is confirmed in the quote.',
     },
     {

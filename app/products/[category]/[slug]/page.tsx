@@ -54,7 +54,7 @@ export default async function ProductPage({ params }: Props) {
     { label: 'Material', value: product.material },
     { label: 'Overall dimensions', value: product.dimensions },
     { label: 'Minimum order', value: product.moqLabel },
-    { label: 'Lead time', value: 'Typically 15–25 days, depending on quantity and process' },
+    { label: 'Lead time', value: '15 days for standard orders' },
   ]
 
   return (
