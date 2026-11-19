@@ -15,7 +15,7 @@ import { buildMetadata } from '@/lib/seo'
 export const metadata = buildMetadata({
   title: 'Capabilities — Presses, Tooling and Production',
   description:
-    'A 3,000 m² Ningbo facility with three production lines, backing-plate molds, automatic blanking, deburring and shot blasting, and drawing-based mold development.',
+    'A 3,000 m² Ningbo facility with three production lines, 1,000+ backing-plate molds, automatic blanking, deburring and shot blasting, and drawing-based mold development.',
   path: '/capabilities',
 })
 

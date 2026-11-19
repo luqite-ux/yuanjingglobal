@@ -188,7 +188,7 @@ export function ToolingSection() {
             title="Your drawing becomes a mold, then a repeat part"
           >
             <p>
-              Existing backing-plate molds are available. If your part is
+              More than 1,000 backing-plate molds already exist. If your part is
               not among them, we develop tooling from your drawing.
             </p>
           </SectionHeading>

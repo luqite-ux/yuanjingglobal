@@ -3,7 +3,7 @@ export const factStats = [
   { value: '3,000 m²', label: 'Production facility' },
   { value: '3', label: 'Production lines' },
   { value: '1,000,000', label: 'Pieces per month, stated capacity' },
-  { value: 'In-house', label: 'Backing-plate molds' },
+  { value: '1,000+', label: 'Backing-plate molds' },
 ] as const
 
 export const factoryAreas = [
@@ -23,7 +23,7 @@ export const equipment = [
   { count: '1', item: 'Automatic chamfering system', spec: '' },
   { count: '2', item: 'Deburring machines', spec: '' },
   { count: '1', item: 'Shot-blasting machine', spec: '' },
-  { count: 'In-house', item: 'Backing-plate molds', spec: 'Existing tooling library' },
+  { count: '1,000+', item: 'Backing-plate molds', spec: 'Existing tooling library' },
 ] as const
 
 export interface ProcessStep {
@@ -116,7 +116,7 @@ export const toolingSteps = [
   },
   {
     title: 'Mold development',
-    text: 'Tooling is developed from your drawing, supported by an existing backing-plate mold library.',
+    text: 'Tooling is developed from your drawing, supported by an existing library of more than 1,000 backing-plate molds.',
   },
   {
     title: 'Sampling',
