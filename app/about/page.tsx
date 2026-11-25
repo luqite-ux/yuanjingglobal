@@ -62,6 +62,29 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section id="company-film" aria-labelledby="company-film-title" className="bg-mist py-16 lg:py-24">
+        <div className="container-page">
+          <Reveal>
+            <SectionHeading id="company-film-title" eyebrow="Company film" title="See Yuanjing at work">
+              <p>Take a look inside our Ningbo facility and the work behind our brake pad backing plates.</p>
+            </SectionHeading>
+          </Reveal>
+          <Reveal className="mt-8" delay={80}>
+            <video
+              className="aspect-video w-full bg-ink object-cover"
+              controls
+              playsInline
+              preload="none"
+              poster="/images/company-video-poster.jpg"
+              aria-label="Yuanjing company promotional film"
+            >
+              <source src="https://pub-c7a22068052144a5805830c30d280128.r2.dev/tenants/yuanjingglobal/videos/79d2212116b25e20f9cf.mp4" type="video/mp4" />
+              Your browser does not support video playback.
+            </video>
+          </Reveal>
+        </div>
+      </section>
+
       <section aria-labelledby="verification-title" className="border-y border-line bg-paper py-16 lg:py-24">
         <div className="container-page grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">

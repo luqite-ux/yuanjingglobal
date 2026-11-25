@@ -329,6 +329,9 @@ export function CompanySection() {
             <ButtonLink href="/about" variant="outline">
               About Yuanjing
             </ButtonLink>
+            <a href="/about#company-film" className="ml-4 inline-flex min-h-11 items-center font-semibold text-yj-blue underline underline-offset-4">
+              Watch our company film
+            </a>
           </div>
         </Reveal>
         <Reveal className="lg:col-span-5 lg:col-start-8" delay={80}>
