@@ -59,6 +59,10 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <SiteFooter />
         <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
+        <script
+          async
+          src={`https://admin.globle-trade.com/api/public/analytics.js?tenantId=${encodeURIComponent(process.env.NEXT_PUBLIC_TENANT_ID || "afb1a468-b7cf-4902-beb4-d02e66974e25")}`}
+        />
       </body>
     </html>
   )
